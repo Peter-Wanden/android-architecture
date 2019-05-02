@@ -68,15 +68,19 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     @Override
     public <T extends ViewModel> T create(Class<T> modelClass) {
+
         if (modelClass.isAssignableFrom(StatisticsViewModel.class)) {
             //noinspection unchecked
             return (T) new StatisticsViewModel(mApplication, mTasksRepository);
+
         } else if (modelClass.isAssignableFrom(TaskDetailViewModel.class)) {
             //noinspection unchecked
             return (T) new TaskDetailViewModel(mApplication, mTasksRepository);
+
         } else if (modelClass.isAssignableFrom(AddEditTaskViewModel.class)) {
             //noinspection unchecked
             return (T) new AddEditTaskViewModel(mApplication, mTasksRepository);
+
         } else if (modelClass.isAssignableFrom(TasksViewModel.class)) {
             //noinspection unchecked
             return (T) new TasksViewModel(mApplication, mTasksRepository);
