@@ -26,7 +26,6 @@ import android.support.test.espresso.matcher.BoundedMatcher;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.android.architecture.blueprints.todoapp.R;

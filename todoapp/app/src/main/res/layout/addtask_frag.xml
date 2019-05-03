@@ -47,7 +47,7 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:visibility="@{viewmodel.dataLoading ? View.GONE : View.VISIBLE}">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/add_task_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                     android:text="@={viewmodel.title}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/add_task_description"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"

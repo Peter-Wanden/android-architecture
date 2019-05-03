@@ -17,15 +17,15 @@
 package com.example.android.architecture.blueprints.todoapp.tasks;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
 import android.content.Context;
-import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 import android.graphics.drawable.Drawable;
+
+import androidx.lifecycle.AndroidViewModel;
 
 import com.example.android.architecture.blueprints.todoapp.SingleLiveEvent;
 import com.example.android.architecture.blueprints.todoapp.R;
@@ -43,7 +43,7 @@ import java.util.List;
 /**
  * Exposes the data to be used in the task list screen.
  * <p>
- * {@link BaseObservable} implements a listener registration mechanism which is notified when a
+ * {@link android.databinding.BaseObservable} implements a listener registration mechanism which is notified when a
  * property changes. This is done by assigning a {@link Bindable} annotation to the property's
  * getter method.
  */

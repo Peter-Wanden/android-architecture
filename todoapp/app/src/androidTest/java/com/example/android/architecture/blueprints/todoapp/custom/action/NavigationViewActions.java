@@ -19,21 +19,22 @@ package com.example.android.architecture.blueprints.todoapp.custom.action;
 import org.hamcrest.Matcher;
 
 import android.content.res.Resources.NotFoundException;
-import android.support.design.widget.NavigationView;
-import android.support.test.espresso.PerformException;
-import android.support.test.espresso.UiController;
-import android.support.test.espresso.ViewAction;
-import android.support.test.espresso.matcher.ViewMatchers;
-import android.support.test.espresso.util.HumanReadables;
-import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
-import static android.support.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
-import static org.hamcrest.Matchers.allOf;
+import androidx.test.espresso.PerformException;
+import androidx.test.espresso.UiController;
+import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.matcher.ViewMatchers;
+import androidx.test.espresso.util.HumanReadables;
+
+import com.google.android.material.navigation.NavigationView;
+
+import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
+import static androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
+import static org.hamcrest.core.AllOf.allOf;
 
 /**
  * View actions for interacting with {@link NavigationView}
@@ -51,7 +52,7 @@ public final class NavigationViewActions {
      * <p>
      * View constraints:
      * <ul>
-     * <li>View must be a child of a {@link DrawerLayout}
+     * <li>View must be a child of a {@link androidx.drawerlayout.widget.DrawerLayout}
      * <li>View must be of type {@link NavigationView}
      * <li>View must be visible on screen
      * <li>View must be displayed on screen

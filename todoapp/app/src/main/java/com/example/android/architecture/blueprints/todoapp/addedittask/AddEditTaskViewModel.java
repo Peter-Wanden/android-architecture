@@ -17,10 +17,11 @@
 package com.example.android.architecture.blueprints.todoapp.addedittask;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+import androidx.lifecycle.AndroidViewModel;
 
 import com.example.android.architecture.blueprints.todoapp.SingleLiveEvent;
 import com.example.android.architecture.blueprints.todoapp.R;

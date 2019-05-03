@@ -16,10 +16,10 @@
 
 package com.example.android.architecture.blueprints.todoapp;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LifecycleRegistry;
 
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
 
 public class TestUtils {
     public static final LifecycleOwner TEST_OBSERVER = new LifecycleOwner() {

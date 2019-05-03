@@ -19,16 +19,16 @@ package com.example.android.architecture.blueprints.todoapp;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.test.runner.lifecycle.ActivityLifecycleMonitor;
-import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
+import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 
 import java.util.Collection;
 
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
-import static android.support.test.runner.lifecycle.Stage.RESUMED;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static androidx.test.runner.lifecycle.Stage.RESUMED;
 
 /**
  * Useful test methods common to all activities
@@ -76,7 +76,7 @@ public class TestUtils {
      * <p>
      * This method should never be called from the Main thread. In certain situations there might
      * be more than one Activities in RESUMED stage, but only one is returned.
-     * See {@link ActivityLifecycleMonitor}.
+     * See {@link androidx.test.runner.lifecycle.ActivityLifecycleMonitor}.
      */
     public static Activity getCurrentActivity() throws IllegalStateException {
         // The array is just to wrap the Activity and be able to access it from the Runnable.

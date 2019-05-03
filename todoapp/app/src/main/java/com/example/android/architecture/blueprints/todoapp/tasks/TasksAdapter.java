@@ -24,7 +24,6 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 
 import com.example.android.architecture.blueprints.todoapp.data.Task;
-import com.example.android.architecture.blueprints.todoapp.databinding.TaskItemBinding;
 
 import java.util.List;
 
