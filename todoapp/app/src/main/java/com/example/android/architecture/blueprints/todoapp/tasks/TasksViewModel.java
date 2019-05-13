@@ -17,15 +17,16 @@
 package com.example.android.architecture.blueprints.todoapp.tasks;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
 import android.content.Context;
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
-import android.databinding.ObservableList;
 import android.graphics.drawable.Drawable;
+
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableList;
+import androidx.lifecycle.AndroidViewModel;
 
 import com.example.android.architecture.blueprints.todoapp.SingleLiveEvent;
 import com.example.android.architecture.blueprints.todoapp.R;
@@ -51,21 +52,14 @@ public class TasksViewModel extends AndroidViewModel {
 
     // These observable fields will update Views automatically
     public final ObservableList<Task> items = new ObservableArrayList<>();
-
     public final ObservableBoolean dataLoading = new ObservableBoolean(false);
-
     public final ObservableField<String> currentFilteringLabel = new ObservableField<>();
-
     public final ObservableField<String> noTasksLabel = new ObservableField<>();
-
     public final ObservableField<Drawable> noTaskIconRes = new ObservableField<>();
-
     public final ObservableBoolean empty = new ObservableBoolean(false);
-
     public final ObservableBoolean tasksAddViewVisible = new ObservableBoolean();
 
     private final SnackbarMessage mSnackbarText = new SnackbarMessage();
-
     private TasksFilterType mCurrentFiltering = TasksFilterType.ALL_TASKS;
 
     private final TasksRepository mTasksRepository;

@@ -17,10 +17,12 @@
 package com.example.android.architecture.blueprints.todoapp.addedittask;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableField;
+import androidx.lifecycle.AndroidViewModel;
 
 import com.example.android.architecture.blueprints.todoapp.SingleLiveEvent;
 import com.example.android.architecture.blueprints.todoapp.R;
@@ -33,7 +35,7 @@ import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepo
  * ViewModel for the Add/Edit screen.
  * <p>
  * This ViewModel only exposes {@link ObservableField}s, so it doesn't need to extend
- * {@link android.databinding.BaseObservable} and updates are notified automatically. See
+ * {@link BaseObservable} and updates are notified automatically. See
  * {@link com.example.android.architecture.blueprints.todoapp.statistics.StatisticsViewModel} for
  * how to deal with more complex scenarios.
  */

@@ -55,7 +55,7 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:visibility="@{viewmodel.dataAvailable ? View.GONE : View.VISIBLE}">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_data"
@@ -72,7 +72,7 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:visibility="@{viewmodel.dataAvailable ? View.VISIBLE : View.GONE}">
 
-            <CheckBox
+            <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/task_detail_complete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                 android:onClick="@{(view) -> listener.onCompleteChanged(view)}"
                 android:checked="@{viewmodel.completed}" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/task_detail_title"
                 android:layout_toRightOf="@id/task_detail_complete"
                 android:layout_width="match_parent"
@@ -89,7 +89,7 @@
                 android:text="@{viewmodel.task.title}"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/task_detail_description"
                 android:layout_toRightOf="@id/task_detail_complete"
                 android:layout_below="@id/task_detail_title"

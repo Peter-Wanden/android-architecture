@@ -38,7 +38,7 @@
         android:paddingTop="@dimen/list_item_padding"
         android:onClick="@{() -> listener.onTaskClicked(task)}">
 
-        <CheckBox
+        <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/complete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             android:onClick="@{(view) -> listener.onCompleteChanged(task, view)}"
             android:checked="@{task.completed}"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

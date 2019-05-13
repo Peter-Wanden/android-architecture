@@ -18,8 +18,9 @@ package com.example.android.architecture.blueprints.todoapp.taskdetail;
 
 
 import android.app.Application;
-import android.arch.core.executor.testing.InstantTaskExecutorRule;
 import android.content.res.Resources;
+
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.SnackbarMessage;
