@@ -16,10 +16,10 @@
 
 package com.example.android.architecture.blueprints.todoapp.data.source;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.example.android.architecture.blueprints.todoapp.data.Task;
 

@@ -33,7 +33,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/loading"
@@ -47,21 +47,21 @@
         android:orientation="vertical"
         android:visibility="@{stats.dataLoading ? View.GONE : View.VISIBLE}">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/statistics_no_tasks"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:visibility="@{stats.empty ? View.VISIBLE : View.GONE}" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{stats.numberOfActiveTasks}"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:visibility="@{stats.empty ? View.GONE : View.VISIBLE}" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{stats.numberOfCompletedTasks}"

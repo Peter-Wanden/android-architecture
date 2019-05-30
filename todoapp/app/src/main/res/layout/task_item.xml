@@ -33,14 +33,14 @@
         android:paddingTop="@dimen/list_item_padding"
         android:onClick="@{() -> viewmodel.taskClicked()}">
 
-        <CheckBox
+        <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/complete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:checked="@={viewmodel.completed}"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
