@@ -22,9 +22,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="android-architecture" type="b2602c69:ProjectViewProjectNode" />
+              <item name="android-architecture" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android-architecture" type="b2602c69:ProjectViewProjectNode" />
+              <item name="android-architecture" type="462c0819:PsiDirectoryNode" />
+              <item name="todoapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">

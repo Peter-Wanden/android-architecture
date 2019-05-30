@@ -27,7 +27,7 @@ import com.example.android.architecture.blueprints.todoapp.data.source.local.ToD
 import com.example.android.architecture.blueprints.todoapp.data.source.remote.TasksRemoteDataSource;
 import com.example.android.architecture.blueprints.todoapp.util.AppExecutors;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import static androidx.core.util.Preconditions.checkNotNull;
 
 /**
  * Enables injection of production implementations for

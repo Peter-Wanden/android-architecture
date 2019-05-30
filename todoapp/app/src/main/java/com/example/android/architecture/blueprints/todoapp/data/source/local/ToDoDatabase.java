@@ -31,9 +31,7 @@ import com.example.android.architecture.blueprints.todoapp.data.Task;
 public abstract class ToDoDatabase extends RoomDatabase {
 
     private static ToDoDatabase INSTANCE;
-
     public abstract TasksDao taskDao();
-
     private static final Object sLock = new Object();
 
     public static ToDoDatabase getInstance(Context context) {

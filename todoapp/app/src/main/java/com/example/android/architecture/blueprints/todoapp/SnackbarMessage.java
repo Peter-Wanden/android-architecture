@@ -48,5 +48,4 @@ public class SnackbarMessage extends SingleLiveEvent<Integer> {
          */
         void onNewMessage(@StringRes int snackbarMessageResourceId);
     }
-
 }

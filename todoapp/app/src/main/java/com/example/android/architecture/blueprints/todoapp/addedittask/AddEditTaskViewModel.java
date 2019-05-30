@@ -42,28 +42,20 @@ import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepo
 public class AddEditTaskViewModel extends AndroidViewModel implements TasksDataSource.GetTaskCallback {
 
     public final ObservableField<String> title = new ObservableField<>();
-
     public final ObservableField<String> description = new ObservableField<>();
-
     public final ObservableBoolean dataLoading = new ObservableBoolean(false);
-
     private final SnackbarMessage mSnackbarText = new SnackbarMessage();
-
     private final SingleLiveEvent<Void> mTaskUpdated = new SingleLiveEvent<>();
 
     private final TasksRepository mTasksRepository;
 
     @Nullable
     private String mTaskId;
-
     private boolean mIsNewTask;
-
     private boolean mIsDataLoaded = false;
-
     private boolean mTaskCompleted = false;
 
-    public AddEditTaskViewModel(Application context,
-                                TasksRepository tasksRepository) {
+    public AddEditTaskViewModel(Application context, TasksRepository tasksRepository) {
         super(context);
         mTasksRepository = tasksRepository;
     }

@@ -43,9 +43,7 @@ import static com.example.android.architecture.blueprints.todoapp.taskdetail.Tas
 public class TaskDetailActivity extends AppCompatActivity implements TaskDetailNavigator {
 
     public static final String EXTRA_TASK_ID = "TASK_ID";
-
     public static final int DELETE_RESULT_OK = RESULT_FIRST_USER + 2;
-
     public static final int EDIT_RESULT_OK = RESULT_FIRST_USER + 3;
 
     private TaskDetailViewModel mTaskViewModel;
@@ -55,16 +53,13 @@ public class TaskDetailActivity extends AppCompatActivity implements TaskDetailN
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.taskdetail_act);
-
         setupToolbar();
-
         TaskDetailFragment taskDetailFragment = findOrCreateViewFragment();
 
         ActivityUtils.replaceFragmentInActivity(getSupportFragmentManager(),
                 taskDetailFragment, R.id.contentFrame);
 
         mTaskViewModel = obtainViewModel(this);
-
         subscribeToNavigationChanges(mTaskViewModel);
     }
 
@@ -72,7 +67,6 @@ public class TaskDetailActivity extends AppCompatActivity implements TaskDetailN
     private TaskDetailFragment findOrCreateViewFragment() {
         // Get the requested task id
         String taskId = getIntent().getStringExtra(EXTRA_TASK_ID);
-
         TaskDetailFragment taskDetailFragment = (TaskDetailFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.contentFrame);
 
@@ -86,16 +80,17 @@ public class TaskDetailActivity extends AppCompatActivity implements TaskDetailN
     public static TaskDetailViewModel obtainViewModel(FragmentActivity activity) {
         // Use a Factory to inject dependencies into the ViewModel
         ViewModelFactory factory = ViewModelFactory.getInstance(activity.getApplication());
-
         return ViewModelProviders.of(activity, factory).get(TaskDetailViewModel.class);
     }
 
     private void setupToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-        ab.setDisplayShowHomeEnabled(true);
+        if (ab != null) {
+            ab.setDisplayHomeAsUpEnabled(true);
+            ab.setDisplayShowHomeEnabled(true);
+        }
     }
 
     private void subscribeToNavigationChanges(TaskDetailViewModel viewModel) {
@@ -116,6 +111,7 @@ public class TaskDetailActivity extends AppCompatActivity implements TaskDetailN
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_EDIT_TASK) {
             // If the task was edited successfully, go back to the list.
             if (resultCode == ADD_EDIT_RESULT_OK) {
@@ -146,5 +142,4 @@ public class TaskDetailActivity extends AppCompatActivity implements TaskDetailN
         intent.putExtra(AddEditTaskFragment.ARGUMENT_EDIT_TASK_ID, taskId);
         startActivityForResult(intent, REQUEST_EDIT_TASK);
     }
-
 }

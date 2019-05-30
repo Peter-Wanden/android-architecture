@@ -38,7 +38,6 @@ import com.example.android.architecture.blueprints.todoapp.util.ActivityUtils;
 public class AddEditTaskActivity extends AppCompatActivity implements AddEditTaskNavigator {
 
     public static final int REQUEST_CODE = 1;
-
     public static final int ADD_EDIT_RESULT_OK = RESULT_FIRST_USER + 1;
 
     @Override

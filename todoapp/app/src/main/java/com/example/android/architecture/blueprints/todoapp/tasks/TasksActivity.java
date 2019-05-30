@@ -42,7 +42,6 @@ import com.google.android.material.navigation.NavigationView;
 public class TasksActivity extends AppCompatActivity implements TaskItemNavigator, TasksNavigator {
 
     private DrawerLayout mDrawerLayout;
-
     private TasksViewModel mViewModel;
 
     @Override
@@ -51,13 +50,10 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
         setContentView(R.layout.tasks_act);
 
         setupToolbar();
-
         setupNavigationDrawer();
-
         setupViewFragment();
 
         mViewModel = obtainViewModel(this);
-
         // Subscribe to "open task" event
         mViewModel.getOpenTaskEvent().observe(this, new Observer<String>() {
             @Override
@@ -80,10 +76,8 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
     public static TasksViewModel obtainViewModel(FragmentActivity activity) {
         // Use a Factory to inject dependencies into the ViewModel
         ViewModelFactory factory = ViewModelFactory.getInstance(activity.getApplication());
-
         TasksViewModel viewModel =
                 ViewModelProviders.of(activity, factory).get(TasksViewModel.class);
-
         return viewModel;
     }
 
@@ -99,11 +93,13 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
     }
 
     private void setupToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
-        ab.setHomeAsUpIndicator(R.drawable.ic_menu);
-        ab.setDisplayHomeAsUpEnabled(true);
+        if (ab != null) {
+            ab.setHomeAsUpIndicator(R.drawable.ic_menu);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     private void setupNavigationDrawer() {
@@ -153,6 +149,7 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         mViewModel.handleActivityResult(requestCode, resultCode);
     }
 

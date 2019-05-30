@@ -43,7 +43,7 @@ import java.util.List;
 
 /**
  * Exposes the data to be used in the task list screen.
- * <p>
+ *
  * {@link BaseObservable} implements a listener registration mechanism which is notified when a
  * property changes. This is done by assigning a {@link Bindable} annotation to the property's
  * getter method.
