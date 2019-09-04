@@ -158,7 +158,6 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
         Intent intent = new Intent(this, TaskDetailActivity.class);
         intent.putExtra(TaskDetailActivity.EXTRA_TASK_ID, taskId);
         startActivityForResult(intent, AddEditTaskActivity.REQUEST_CODE);
-
     }
 
     @Override

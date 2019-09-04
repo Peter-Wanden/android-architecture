@@ -43,11 +43,8 @@ import java.util.List;
 public class StatisticsViewModel extends AndroidViewModel {
 
     public final ObservableBoolean dataLoading = new ObservableBoolean(false);
-
     public final ObservableBoolean error = new ObservableBoolean(false);
-
     public final ObservableField<String> numberOfActiveTasks = new ObservableField<>();
-
     public final ObservableField<String> numberOfCompletedTasks = new ObservableField<>();
 
     /**
@@ -56,11 +53,9 @@ public class StatisticsViewModel extends AndroidViewModel {
     public final ObservableBoolean empty = new ObservableBoolean();
 
     private int mNumberOfActiveTasks = 0;
-
     private int mNumberOfCompletedTasks = 0;
 
     private final Context mContext;
-
     private final TasksRepository mTasksRepository;
 
     public StatisticsViewModel(Application context, TasksRepository tasksRepository) {

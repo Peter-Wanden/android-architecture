@@ -60,7 +60,6 @@ public class TaskDetailFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         setupFab();
-
         setupSnackbar();
     }
 
@@ -69,7 +68,6 @@ public class TaskDetailFragment extends Fragment {
             @Override
             public void onNewMessage(@StringRes int snackbarMessageResourceId) {
                 SnackbarUtils.showSnackbar(getView(), getString(snackbarMessageResourceId));
-
             }
         });
     }

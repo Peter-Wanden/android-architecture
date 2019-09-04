@@ -40,15 +40,10 @@ import com.example.android.architecture.blueprints.todoapp.tasks.TasksFragment;
 public class TaskDetailViewModel extends AndroidViewModel implements TasksDataSource.GetTaskCallback {
 
     public final ObservableField<Task> task = new ObservableField<>();
-
     public final ObservableBoolean completed = new ObservableBoolean();
-
     private final SingleLiveEvent<Void> mEditTaskCommand = new SingleLiveEvent<>();
-
     private final SingleLiveEvent<Void> mDeleteTaskCommand = new SingleLiveEvent<>();
-
     private final TasksRepository mTasksRepository;
-
     private final SnackbarMessage mSnackbarText = new SnackbarMessage();
 
     private boolean mIsDataLoading;
@@ -69,12 +64,12 @@ public class TaskDetailViewModel extends AndroidViewModel implements TasksDataSo
         mEditTaskCommand.call();
     }
 
-    public SnackbarMessage getSnackbarMessage() {
-        return mSnackbarText;
-    }
-
     public SingleLiveEvent<Void> getEditTaskCommand() {
         return mEditTaskCommand;
+    }
+
+    public SnackbarMessage getSnackbarMessage() {
+        return mSnackbarText;
     }
 
     public SingleLiveEvent<Void> getDeleteTaskCommand() {

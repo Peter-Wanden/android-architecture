@@ -56,11 +56,8 @@ public class TaskDetailViewModelTest {
     public InstantTaskExecutorRule instantExecutorRule = new InstantTaskExecutorRule();
 
     private static final String TITLE_TEST = "title";
-
     private static final String DESCRIPTION_TEST = "description";
-
     private static final String NO_DATA_STRING = "NO_DATA_STRING";
-
     private static final String NO_DATA_DESC_STRING = "NO_DATA_DESC_STRING";
 
     @Mock

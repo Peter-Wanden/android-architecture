@@ -48,9 +48,7 @@ import java.util.ArrayList;
 public class TasksFragment extends Fragment {
 
     private TasksViewModel mTasksViewModel;
-
     private TasksFragBinding mTasksFragBinding;
-
     private TasksAdapter mListAdapter;
 
     public TasksFragment() {
@@ -109,11 +107,8 @@ public class TasksFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         setupSnackbar();
-
         setupFab();
-
         setupListAdapter();
-
         setupRefreshLayout();
     }
 

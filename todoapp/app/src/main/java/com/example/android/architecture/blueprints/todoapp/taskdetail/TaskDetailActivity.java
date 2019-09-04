@@ -63,6 +63,16 @@ public class TaskDetailActivity extends AppCompatActivity implements TaskDetailN
         subscribeToNavigationChanges(mTaskViewModel);
     }
 
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setDisplayHomeAsUpEnabled(true);
+            ab.setDisplayShowHomeEnabled(true);
+        }
+    }
+
     @NonNull
     private TaskDetailFragment findOrCreateViewFragment() {
         // Get the requested task id
@@ -81,16 +91,6 @@ public class TaskDetailActivity extends AppCompatActivity implements TaskDetailN
         // Use a Factory to inject dependencies into the ViewModel
         ViewModelFactory factory = ViewModelFactory.getInstance(activity.getApplication());
         return ViewModelProviders.of(activity, factory).get(TaskDetailViewModel.class);
-    }
-
-    private void setupToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        if (ab != null) {
-            ab.setDisplayHomeAsUpEnabled(true);
-            ab.setDisplayShowHomeEnabled(true);
-        }
     }
 
     private void subscribeToNavigationChanges(TaskDetailViewModel viewModel) {

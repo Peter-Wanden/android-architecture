@@ -41,7 +41,6 @@ public class AddEditTaskFragment extends Fragment {
     public static final String ARGUMENT_EDIT_TASK_ID = "EDIT_TASK_ID";
 
     private AddEditTaskViewModel mViewModel;
-
     private AddtaskFragBinding mViewDataBinding;
 
     public static AddEditTaskFragment newInstance() {
@@ -57,11 +56,8 @@ public class AddEditTaskFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         setupFab();
-
         setupSnackbar();
-
         setupActionBar();
-
         loadData();
     }
 
