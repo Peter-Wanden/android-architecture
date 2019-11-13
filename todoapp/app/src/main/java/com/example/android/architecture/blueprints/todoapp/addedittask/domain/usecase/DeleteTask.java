@@ -16,7 +16,7 @@
 
 package com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.android.architecture.blueprints.todoapp.UseCase;
 import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;

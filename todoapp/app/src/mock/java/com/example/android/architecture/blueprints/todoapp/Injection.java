@@ -17,7 +17,8 @@
 package com.example.android.architecture.blueprints.todoapp;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase.DeleteTask;
 import com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase.GetTask;
@@ -48,7 +49,8 @@ public class Injection {
         checkNotNull(context);
         ToDoDatabase database = ToDoDatabase.getInstance(context);
         return TasksRepository.getInstance(FakeTasksRemoteDataSource.getInstance(),
-                TasksLocalDataSource.getInstance(new AppExecutors(),
+                TasksLocalDataSource.getInstance(
+                        new AppExecutors(),
                         database.taskDao()));
     }
 

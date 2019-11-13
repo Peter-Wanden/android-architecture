@@ -16,9 +16,9 @@
 
 package com.example.android.architecture.blueprints.todoapp.statistics;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import androidx.annotation.NonNull;
 
-import android.support.annotation.NonNull;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.example.android.architecture.blueprints.todoapp.UseCase;
 import com.example.android.architecture.blueprints.todoapp.UseCaseHandler;

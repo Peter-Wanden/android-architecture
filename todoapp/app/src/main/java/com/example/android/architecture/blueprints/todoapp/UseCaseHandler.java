@@ -32,8 +32,11 @@ public class UseCaseHandler {
         mUseCaseScheduler = useCaseScheduler;
     }
 
-    public <T extends UseCase.RequestValues, R extends UseCase.ResponseValue> void execute(
-            final UseCase<T, R> useCase, T values, UseCase.UseCaseCallback<R> callback) {
+    public <T extends UseCase.RequestValues,
+            R extends UseCase.ResponseValue>
+    void execute(final UseCase<T, R> useCase,
+                 T values,
+                 UseCase.UseCaseCallback<R> callback) {
         useCase.setRequestValues(values);
         useCase.setUseCaseCallback(new UiCallbackWrapper(callback, this));
 
@@ -73,7 +76,7 @@ public class UseCaseHandler {
         private final UseCaseHandler mUseCaseHandler;
 
         public UiCallbackWrapper(UseCase.UseCaseCallback<V> callback,
-                UseCaseHandler useCaseHandler) {
+                                 UseCaseHandler useCaseHandler) {
             mCallback = callback;
             mUseCaseHandler = useCaseHandler;
         }

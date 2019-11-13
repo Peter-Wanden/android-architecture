@@ -16,15 +16,12 @@
 
 package com.example.android.architecture.blueprints.todoapp.statistics;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
-import com.example.android.architecture.blueprints.todoapp.TestUseCaseScheduler;
-import com.example.android.architecture.blueprints.todoapp.UseCaseHandler;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;
+import android.content.Context;
+
+import com.example.android.architecture.blueprints.todoapp.data.Task;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
-import com.example.android.architecture.blueprints.todoapp.statistics.domain.usecase.GetStatistics;
 import com.google.common.collect.Lists;
 
 import org.junit.Before;
@@ -36,102 +33,85 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+
 /**
- * Unit tests for the implementation of {@link StatisticsPresenter}
+ * Unit tests for the implementation of {@link StatisticsViewModel}
  */
-public class StatisticsPresenterTest {
+public class StatisticsViewModelTest {
 
     private static List<Task> TASKS;
 
     @Mock
     private TasksRepository mTasksRepository;
-
-    @Mock
-    private StatisticsContract.View mStatisticsView;
-
-    /**
-     * {@link ArgumentCaptor} is a powerful Mockito API to capture argument values and use them to
-     * perform further actions or assertions on them.
-     */
     @Captor
     private ArgumentCaptor<TasksDataSource.LoadTasksCallback> mLoadTasksCallbackCaptor;
 
-
-    private StatisticsPresenter mStatisticsPresenter;
+    private StatisticsViewModel mStatisticsViewModel;
 
     @Before
-    public void setupStatisticsPresenter() {
+    public void setupStatisticsViewModel() {
         // Mockito has a very convenient way to inject mocks by using the @Mock annotation. To
         // inject the mocks in the test the initMocks method needs to be called.
         MockitoAnnotations.initMocks(this);
 
         // Get a reference to the class under test
-        mStatisticsPresenter = givenStatisticsPresenter();
+        mStatisticsViewModel = new StatisticsViewModel(mock(Context.class), mTasksRepository);
 
-        // The presenter won't update the view unless it's active.
-        when(mStatisticsView.isActive()).thenReturn(true);
-
-        // We start the tasks to 3, with one active and two completed
-        TASKS = Lists.newArrayList(new Task("Title1", "Description1"),
-                new Task("Title2", "Description2", true), new Task("Title3", "Description3", true));
+        // We initialise the tasks to 3, with one active and two completed
+        TASKS = Lists.newArrayList(
+                new Task("Title1", "Description1"),
+                new Task("Title2", "Description2", true),
+                new Task("Title3", "Description3", true));
     }
 
     @Test
     public void loadEmptyTasksFromRepository_CallViewToDisplay() {
-        // Given an initialized StatisticsPresenter with no tasks
+        // Given an initialized StatisticsViewModel with no tasks
         TASKS.clear();
 
         // When loading of Tasks is requested
-        mStatisticsPresenter.start();
-
-        //Then progress indicator is shown
-        verify(mStatisticsView).setProgressIndicator(true);
+        mStatisticsViewModel.loadStatistics();
 
         // Callback is captured and invoked with stubbed tasks
         verify(mTasksRepository).getTasks(mLoadTasksCallbackCaptor.capture());
         mLoadTasksCallbackCaptor.getValue().onTasksLoaded(TASKS);
 
         // Then progress indicator is hidden and correct data is passed on to the view
-        verify(mStatisticsView).setProgressIndicator(false);
-        verify(mStatisticsView).showStatistics(0, 0);
+        assertTrue(mStatisticsViewModel.isEmpty());
+        assertEquals(mStatisticsViewModel.mNumberOfActiveTasks, 0);
+        assertEquals(mStatisticsViewModel.mNumberOfCompletedTasks, 0);
     }
 
     @Test
     public void loadNonEmptyTasksFromRepository_CallViewToDisplay() {
-        // Given an initialized StatisticsPresenter with 1 active and 2 completed tasks
-
         // When loading of Tasks is requested
-        mStatisticsPresenter.start();
-
-        //Then progress indicator is shown
-        verify(mStatisticsView).setProgressIndicator(true);
+        mStatisticsViewModel.loadStatistics();
 
         // Callback is captured and invoked with stubbed tasks
         verify(mTasksRepository).getTasks(mLoadTasksCallbackCaptor.capture());
         mLoadTasksCallbackCaptor.getValue().onTasksLoaded(TASKS);
 
         // Then progress indicator is hidden and correct data is passed on to the view
-        verify(mStatisticsView).setProgressIndicator(false);
-        verify(mStatisticsView).showStatistics(1, 2);
+        assertEquals(mStatisticsViewModel.mNumberOfActiveTasks, 1);
+        assertEquals(mStatisticsViewModel.mNumberOfCompletedTasks, 2);
     }
+
 
     @Test
     public void loadStatisticsWhenTasksAreUnavailable_CallErrorToDisplay() {
         // When statistics are loaded
-        mStatisticsPresenter.start();
+        mStatisticsViewModel.loadStatistics();
 
         // And tasks data isn't available
         verify(mTasksRepository).getTasks(mLoadTasksCallbackCaptor.capture());
         mLoadTasksCallbackCaptor.getValue().onDataNotAvailable();
 
         // Then an error message is shown
-        verify(mStatisticsView).showLoadingStatisticsError();
-    }
-
-    private StatisticsPresenter givenStatisticsPresenter() {
-        UseCaseHandler useCaseHandler = new UseCaseHandler(new TestUseCaseScheduler());
-        GetStatistics getStatistics = new GetStatistics(mTasksRepository);
-
-        return new StatisticsPresenter(useCaseHandler, mStatisticsView, getStatistics);
+        assertEquals(mStatisticsViewModel.isEmpty(), true);
+        assertEquals(mStatisticsViewModel.error.get(), true);
     }
 }

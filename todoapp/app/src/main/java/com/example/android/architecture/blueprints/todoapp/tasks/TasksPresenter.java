@@ -19,7 +19,8 @@ package com.example.android.architecture.blueprints.todoapp.tasks;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.example.android.architecture.blueprints.todoapp.UseCase;
 import com.example.android.architecture.blueprints.todoapp.UseCaseHandler;

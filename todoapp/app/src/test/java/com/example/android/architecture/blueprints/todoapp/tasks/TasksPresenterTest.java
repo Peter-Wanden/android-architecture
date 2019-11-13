@@ -80,8 +80,10 @@ public class TasksPresenterTest {
         when(mTasksView.isActive()).thenReturn(true);
 
         // We start the tasks to 3, with one active and two completed
-        TASKS = Lists.newArrayList(new Task("Title1", "Description1"),
-                new Task("Title2", "Description2", true), new Task("Title3", "Description3", true));
+        TASKS = Lists.newArrayList(
+                new Task("Title1", "Description1"),
+                new Task("Title2", "Description2", true),
+                new Task("Title3", "Description3", true));
     }
 
     private TasksPresenter givenTasksPresenter() {
@@ -91,7 +93,10 @@ public class TasksPresenterTest {
         ActivateTask activateTask = new ActivateTask(mTasksRepository);
         ClearCompleteTasks clearCompleteTasks = new ClearCompleteTasks(mTasksRepository);
 
-        return new TasksPresenter(useCaseHandler, mTasksView, getTasks, completeTask, activateTask,
+        return new TasksPresenter(
+                useCaseHandler,
+                mTasksView, getTasks,
+                completeTask, activateTask,
                 clearCompleteTasks);
     }
 
