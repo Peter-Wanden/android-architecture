@@ -11,7 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     buildTypes {
@@ -69,20 +69,18 @@ android {
  */
 dependencies {
     // App's dependencies, including test
-    implementation "androidx.appcompat:appcompat:$rootProject.appCompat"
+    implementation "androidx.appcompat:appcompat:1.1.0"
     implementation "androidx.cardview:cardview:$rootProject.cardView"
-    implementation "com.google.android.material:material:$rootProject.material"
-    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerView"
+    implementation "com.google.android.material:material:1.2.0-alpha01"
+    implementation "androidx.recyclerview:recyclerview:1.1.0-rc01"
     implementation "androidx.legacy:legacy-support-v4:$rootProject.legacySupport"
     implementation "com.google.guava:guava:$rootProject.guavaVersion"
 
     // Architecture Components
-    implementation "androidx.room:room-runtime:$rootProject.roomRunTime"
+    implementation "androidx.room:room-runtime:2.2.1"
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomCompiler"
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleExtensions"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-rc01"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.lifecycleCompiler"
-
-
 
     // Dependencies for local unit tests
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
@@ -90,8 +88,6 @@ dependencies {
     testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
 
     testImplementation "androidx.arch.core:core-testing:$rootProject.coreTesting"
-
-
 
     // Android Testing Support Library's runner and rules
     androidTestImplementation "androidx.test:runner:$rootProject.ext.runnerVersion"
@@ -107,18 +103,18 @@ dependencies {
 
     // Espresso UI Testing
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoCore"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoContrib"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:3.2.0"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espressoIntents"
     androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$rootProject.espressoConcurrent"
-    implementation "androidx.test.espresso:espresso-idling-resource:$rootProject.espressoIdlingResource"
+    implementation "androidx.test.espresso:espresso-idling-resource:3.2.0"
 
     // Resolve conflicts between main and test APK:
-    androidTestImplementation "androidx.annotation:annotation:$rootProject.annotations"
+    androidTestImplementation "androidx.annotation:annotation:1.1.0"
     androidTestImplementation "androidx.legacy:legacy-support-v4:$rootProject.legacySupport"
-    androidTestImplementation "androidx.recyclerview:recyclerview:$rootProject.recyclerView"
-    androidTestImplementation "androidx.appcompat:appcompat:$rootProject.appCompat"
-    androidTestImplementation "androidx.core:core:$rootProject.coreCore"
-    androidTestImplementation "com.google.android.material:material:$rootProject.material"
+    androidTestImplementation "androidx.recyclerview:recyclerview:1.1.0-rc01"
+    androidTestImplementation "androidx.appcompat:appcompat:1.1.0"
+    androidTestImplementation "androidx.core:core:1.2.0-beta02"
+    androidTestImplementation "com.google.android.material:material:1.2.0-alpha01"
     implementation "com.google.code.findbugs:jsr305:3.0.2"
 }
 

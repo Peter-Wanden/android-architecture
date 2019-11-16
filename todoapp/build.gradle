@@ -6,7 +6,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:3.5.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -35,7 +35,7 @@ ext {
 
     // App dependencies
     supportLibraryVersion = '29.0.0'
-    guavaVersion = '22.0-android'
+    guavaVersion = '28.1-jre'
     junitVersion = '4.12'
     mockitoVersion = '1.10.19'
     powerMockito = '1.6.2'
@@ -52,19 +52,19 @@ ext {
     recyclerView = "1.1.0-alpha05"
     legacySupport = "1.0.0"
     roomRunTime = "2.1.0-beta01"
-    roomCompiler = "2.0.0-rc01"
+    roomCompiler = '2.2.1'
     lifecycleExtensions = "2.2.0-alpha01"
-    lifecycleCompiler = "2.0.0-rc01"
+    lifecycleCompiler = '2.2.0-rc01'
 
-    coreTesting = "2.0.0-rc01"
-    runnerVersion = '1.1.0'
-    rulesVersion = '1.0.1'
-    roomTestingVersion = "2.0.0-rc01"
+    coreTesting = '2.1.0'
+    runnerVersion = '1.2.0'
+    rulesVersion = '1.2.0'
+    roomTestingVersion = '2.2.1'
 
-    espressoCore = "3.1.0"
+    espressoCore = '3.2.0'
     espressoContrib = "3.1.0"
-    espressoIntents = "3.1.0"
-    espressoConcurrent = "3.1.0"
+    espressoIntents = '3.2.0'
+    espressoConcurrent = '3.2.0'
     espressoIdlingResource = "3.1.1"
 
     annotations = "1.0.0"

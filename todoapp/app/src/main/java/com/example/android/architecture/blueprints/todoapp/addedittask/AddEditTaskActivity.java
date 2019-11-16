@@ -20,7 +20,6 @@ package com.example.android.architecture.blueprints.todoapp.addedittask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -31,6 +30,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.ViewModelFactory;
 import com.example.android.architecture.blueprints.todoapp.util.ActivityUtils;
+
+import javax.annotation.Nullable;
 
 /**
  * Displays an add or edit task screen.

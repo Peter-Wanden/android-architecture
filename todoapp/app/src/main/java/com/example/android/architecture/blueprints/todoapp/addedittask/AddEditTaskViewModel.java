@@ -18,7 +18,6 @@ package com.example.android.architecture.blueprints.todoapp.addedittask;
 
 import android.app.Application;
 
-import androidx.annotation.Nullable;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableField;
@@ -30,6 +29,8 @@ import com.example.android.architecture.blueprints.todoapp.SnackbarMessage;
 import com.example.android.architecture.blueprints.todoapp.data.Task;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
+
+import javax.annotation.Nullable;
 
 /**
  * ViewModel for the Add/Edit screen.
