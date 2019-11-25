@@ -25,11 +25,17 @@ import com.example.android.architecture.blueprints.todoapp.util.EspressoIdlingRe
 public class UseCaseHandler {
 
     private static UseCaseHandler INSTANCE;
-
     private final UseCaseScheduler mUseCaseScheduler;
 
     public UseCaseHandler(UseCaseScheduler useCaseScheduler) {
         mUseCaseScheduler = useCaseScheduler;
+    }
+
+    public static UseCaseHandler getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new UseCaseHandler(new UseCaseThreadPoolScheduler());
+        }
+        return INSTANCE;
     }
 
     public <T extends UseCase.RequestValues,
@@ -60,7 +66,8 @@ public class UseCaseHandler {
         });
     }
 
-    public <V extends UseCase.ResponseValue> void notifyResponse(final V response,
+    public <V extends UseCase.ResponseValue> void notifyResponse(
+            final V response,
             final UseCase.UseCaseCallback<V> useCaseCallback) {
         mUseCaseScheduler.notifyResponse(response, useCaseCallback);
     }
@@ -70,8 +77,10 @@ public class UseCaseHandler {
         mUseCaseScheduler.onError(useCaseCallback);
     }
 
-    private static final class UiCallbackWrapper<V extends UseCase.ResponseValue> implements
-            UseCase.UseCaseCallback<V> {
+    private static final class UiCallbackWrapper<V
+            extends UseCase.ResponseValue>
+            implements UseCase.UseCaseCallback<V> {
+
         private final UseCase.UseCaseCallback<V> mCallback;
         private final UseCaseHandler mUseCaseHandler;
 
@@ -90,12 +99,6 @@ public class UseCaseHandler {
         public void onError() {
             mUseCaseHandler.notifyError(mCallback);
         }
-    }
 
-    public static UseCaseHandler getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new UseCaseHandler(new UseCaseThreadPoolScheduler());
-        }
-        return INSTANCE;
     }
 }

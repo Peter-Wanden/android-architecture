@@ -51,10 +51,8 @@ import static org.mockito.Mockito.when;
 public class TasksPresenterTest {
 
     private static List<Task> TASKS;
-
     @Mock
     private TasksRepository mTasksRepository;
-
     @Mock
     private TasksContract.View mTasksView;
 
@@ -95,8 +93,10 @@ public class TasksPresenterTest {
 
         return new TasksPresenter(
                 useCaseHandler,
-                mTasksView, getTasks,
-                completeTask, activateTask,
+                mTasksView,
+                getTasks,
+                completeTask,
+                activateTask,
                 clearCompleteTasks);
     }
 

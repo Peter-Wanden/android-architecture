@@ -32,7 +32,9 @@ public class DeleteTask extends UseCase<DeleteTask.RequestValues, DeleteTask.Res
     private final TasksRepository mTasksRepository;
 
     public DeleteTask(@NonNull TasksRepository tasksRepository) {
-        mTasksRepository = checkNotNull(tasksRepository, "tasksRepository cannot be null!");
+        mTasksRepository = checkNotNull(
+                tasksRepository,
+                "tasksRepository cannot be null!");
     }
 
     @Override
