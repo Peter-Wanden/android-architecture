@@ -33,7 +33,6 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.Observable;
 import androidx.fragment.app.Fragment;
 
-import com.example.android.architecture.blueprints.todoapp.Injection;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.ScrollChildSwipeRefreshLayout;
 import com.example.android.architecture.blueprints.todoapp.data.Task;
@@ -41,7 +40,6 @@ import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepo
 import com.example.android.architecture.blueprints.todoapp.databinding.TaskItemBinding;
 import com.example.android.architecture.blueprints.todoapp.databinding.TasksFragBinding;
 import com.example.android.architecture.blueprints.todoapp.util.SnackbarUtils;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
